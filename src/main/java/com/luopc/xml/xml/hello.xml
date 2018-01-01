@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE persons >
+<persons>
+	<person id="p1" sex="男">
+		<name>zhangsan</name>
+		<password>123123</password>
+		<age>12</age>
+	</person>
+	<person id="p2" sex="女">
+		<name>1234</name>
+		<password></password>
+		<age></age>
+	</person>
+</persons>
