@@ -21,7 +21,7 @@ class MySingleMethod {
 	private MySingleMethod() {
 	}
 
-	public  static MySingleMethod initMethod() {
+	public static MySingleMethod initMethod() {
 		return method;
 	}
 
