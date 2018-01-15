@@ -47,7 +47,7 @@ class BaomaDriver implements Driver{
  * @author cheng
  *
  */
-interface Car {
+interface Car {	
 	public void drive();
 }
 
