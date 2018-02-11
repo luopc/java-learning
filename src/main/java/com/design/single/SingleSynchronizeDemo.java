@@ -11,8 +11,7 @@ public class SingleSynchronizeDemo {
 				creator.test001();
 			}).start();
 		}
-		
-		
+				
 	}
 
 }
@@ -26,7 +25,7 @@ class SingleCreator{
 	private SingleCreator(String name) {
 		this.name = name;
 	}
-	public static  SingleCreator instance(String name) {
+	public static SingleCreator instance(String name) {
 		if(creator == null) {
 			initCreator(name);
 		}
