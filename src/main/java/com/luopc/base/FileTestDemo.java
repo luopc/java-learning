@@ -8,7 +8,7 @@ public class FileTestDemo {
 	
 	@Test
 	public void test01() {
-		String basePath = "G:\\BaiduNetdiskDownload\\Java开发企业级权限管理系统";
+		String basePath = "H:\\视频资料\\Java秒杀系统开发教程";
 		File file = new File(basePath);
 		changeFileName(file);
 	}
@@ -23,8 +23,8 @@ public class FileTestDemo {
 					//System.out.println(fd.getName());
 					String fdName = fd.getName();
 //					System.out.println(fd.getParent());
-					if(fdName.startsWith("[更多IT教程 www.zxit8.com]  ")) {
-						String newFName = fdName.substring("[更多IT教程 www.zxit8.com]  ".length(), fdName.length());
+					if(fdName.startsWith("[www.javaxxz.com]")) {
+						String newFName = fdName.substring("[www.javaxxz.com]".length(), fdName.length());
 						fd.renameTo(new File(fd.getParent(),newFName));
 					}
 				}

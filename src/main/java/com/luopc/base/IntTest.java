@@ -1,5 +1,7 @@
 package com.luopc.base;
 
+import org.junit.Test;
+
 public class IntTest {
 	/**
 	 * @param args
@@ -17,7 +19,7 @@ public class IntTest {
 		System.out.println(i5 == i6);
 		// true
 		/**/
-//		i5 = 128;
+		// i5 = 128;
 		i6 = 128;
 		System.out.println(i5 == i6);// false
 		Integer ii5 = new Integer(127);
@@ -27,4 +29,27 @@ public class IntTest {
 		System.out.println(i7 == i); // false
 	}
 
+	@Test
+	public void test001() {
+		int a = Integer.parseInt("0", 10); // 返回 0
+		int b = Integer.parseInt("473", 10); // 返回 473
+		int c = Integer.parseInt("-0", 10); // 返回 0
+		int d = Integer.parseInt("-FF", 16); // 返回 -255
+		int e = Integer.parseInt("1100110", 2); // 返回 102
+		int f = Integer.parseInt("2147483647", 10); // 返回 2147483647
+		int g = Integer.parseInt("-2147483648", 10); // 返回 -2147483648
+		// int m = Integer.parseInt("2147483648", 10); // 抛出 NumberFormatException
+		// int i = Integer.parseInt("99", 8); // 抛出 NumberFormatException
+		// int j = Integer.parseInt("Hollis", 10); // 抛出 NumberFormatException
+		// int k = Integer.parseInt("Hollis", 27); // 抛出 NumberFormatException
+		int o = Integer.parseInt("ADMIN", 27); // 返回 5586836
+		System.out.println(a + "\n" + b + "\n" + c + "\n" + o + "\n");
+		String gs = Integer.toString(g);
+	
+	}
+
+}
+
+enum tesColor {
+	RED, BLUE, GREEN;
 }
