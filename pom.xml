@@ -39,7 +39,6 @@
 			<artifactId>dom4j</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/cglib/cglib -->
 		<!-- https://mvnrepository.com/artifact/cglib/cglib-nodep -->
 		<dependency>
 			<groupId>cglib</groupId>
