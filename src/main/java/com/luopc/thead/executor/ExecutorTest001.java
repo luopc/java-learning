@@ -25,7 +25,7 @@ public class ExecutorTest001 {
 //		executor = Executors.newSingleThreadExecutor();//只创建一个线程池
 		executor = Executors.newFixedThreadPool(5);//只创建一个固定大小的线程池
 //		executor = Executors.newScheduledThreadPool(5);//核心固定
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 10; i++) {
 			try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {

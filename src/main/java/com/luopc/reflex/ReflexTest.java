@@ -1,5 +1,6 @@
 package com.luopc.reflex;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -52,6 +53,7 @@ public class ReflexTest {
 		Class<?> cls1 = student.getClass();
 		Class cls3 = Class.forName("com.luopc.reflex.Student");
 		Class cls = Student.class;
+		
 		// Method [] mts = cls.getMethods();//
 		Method[] mts = cls.getDeclaredMethods();//
 		for (int i = 0; i < mts.length; i++) {
@@ -62,7 +64,19 @@ public class ReflexTest {
 		System.out.println(cls1 == cls);
 		System.out.println(cls1 == cls3);
 		System.out.println(cls3 == cls);
-
+		
+		System.out.println(cls1.getPackage().getName());
+		try {
+			
+//			if(student instanceof Student) {
+				Student stu1 = (Student) cls.newInstance();
+				System.out.println(stu1);
+//			}
+			
+		} catch (InstantiationException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Test
@@ -72,7 +86,7 @@ public class ReflexTest {
 		for (int i = 0; i < mts.length; i++) {
 			Method m = mts[i];
 			Class returnType = m.getReturnType();
-			System.out.print(returnType.getName() + "  ");
+			System.out.print(returnType.getSimpleName() + " ");
 			System.out.print(m.getName() + "(");
 			
 			Class [] params = m.getParameterTypes();
@@ -134,5 +148,33 @@ public class ReflexTest {
 			e.printStackTrace();
 		}
 	
+	}
+	
+	@Test
+	public void testAnnotation() throws ClassNotFoundException {
+	    Class c = Class.forName("com.luopc.annotation.mooc.Child");
+	    Annotation[] as = c.getAnnotations();
+	    for (int i = 0; i < as.length; i++) {
+	        Annotation ant = as[i];
+	        System.out.println(ant.annotationType().getName());
+	        Object ob = c.getAnnotation(Class.forName(ant.annotationType().getName()));
+	        System.out.println(ob);
+        }
+	    
+	    Method[] mt = c.getDeclaredMethods();
+	    for (int i = 0; i < mt.length; i++) {
+            Method mo = mt[i];
+            System.out.println(mo.getReturnType());
+            System.out.println(mo.getName());
+//            System.out.println(mo.getParameterTypes());
+            
+            Annotation[] mtas = mo.getAnnotations();
+            for (int j = 0; j < mtas.length; j++) {
+                Annotation mta = mtas[j];
+                System.out.println(mta.annotationType().getName());
+            }
+        }
+	    
+	    
 	}
 }
