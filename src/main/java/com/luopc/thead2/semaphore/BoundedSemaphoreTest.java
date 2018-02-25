@@ -1,6 +1,7 @@
 package com.luopc.thead2.semaphore;
 
-import org.junit.Test;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 计数信号量学习
@@ -8,23 +9,21 @@ import org.junit.Test;
  *
  */
 public class BoundedSemaphoreTest {
-
-    @Test
-    public void test() throws InterruptedException {
+    
+    public static void main(String[] args) {        
+        ExecutorService es = Executors.newCachedThreadPool();
         BoundedSemaphore semaphore = new BoundedSemaphore(2);
         for (int i = 0; i < 20; i++) {
-            new Thread(new SemaphoreRunable(semaphore, i)).start();
+            es.execute(new BoundedSemaphoreTest().new SemaphoreRunable(semaphore, i));
         }
-        Thread.sleep(3000);
-    }
-
-    @Test
-    public void testJdk() throws InterruptedException {
-        java.util.concurrent.Semaphore semaphore = new java.util.concurrent.Semaphore(2);
-        for (int i = 0; i < 20; i++) {
-            new Thread(new JdkSemaphoreRunable(semaphore, i)).start();
-        }
-        Thread.sleep(3000);
+        es.shutdown();
+   
+//        ExecutorService es2 = Executors.newCachedThreadPool();
+//        java.util.concurrent.Semaphore smh = new java.util.concurrent.Semaphore(2);
+//        for (int i = 0; i < 20; i++) {
+//            es2.execute(new BoundedSemaphoreTest().new JdkSemaphoreRunable(smh, i));
+//        }
+//        es2.shutdown();
     }
 
     /**
@@ -48,14 +47,14 @@ public class BoundedSemaphoreTest {
         public void run() {
             try {
                 semaphore.take();
-                System.out.println("[" + user + "]开始执行");
-                Thread.sleep(200);
+                System.out.println("[" + user + "]开始执行，当前的single=" + semaphore.getSignals());
+                Thread.sleep((long)(Math.random()*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } finally {
                 try {
                     semaphore.release();
-                    System.out.println("[" + user + "]执行结束");
+                    System.out.println("[" + user + "]执行结束，当前的single=" + semaphore.getSignals());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -87,13 +86,13 @@ public class BoundedSemaphoreTest {
         public void run() {
             try {
                 semaphore.acquire();
-                System.out.println("[" + user + "]开始执行");
-                Thread.sleep(200);
+                System.out.println("[" + user + "]开始执行，当前的single=" + semaphore.getQueueLength());
+                Thread.sleep((long)(Math.random()*1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } finally {
                 semaphore.release();
-                System.out.println("[" + user + "]执行结束");
+                System.out.println("[" + user + "]执行结束，当前的single=" + semaphore.getQueueLength());
 
             }
 

@@ -2,25 +2,33 @@ package com.luopc.thead2.semaphore;
 
 public class BoundedSemaphore {
 
-    private int signals = 0;
-    private int bound = 0;
+    private volatile int signals = 0;
+    final private int bound;
 
     public BoundedSemaphore(int upperBound) {
-        this.bound = upperBound;
+        bound = upperBound;
     }
 
     public synchronized void take() throws InterruptedException {
-        while (this.signals == bound)
+        while (this.signals == bound) {
             wait();
+        }
         this.signals++;
-        this.notifyAll();
+        this.notify();
     }
 
     public synchronized void release() throws InterruptedException {
-        while (this.signals == 0)
+        while (this.signals == 0) {
             wait();
+        }
         this.signals--;
-        this.notifyAll();
+        this.notify();
     }
 
+    public int getSignals() {
+        return signals;
+    }
+
+    
+    
 }
