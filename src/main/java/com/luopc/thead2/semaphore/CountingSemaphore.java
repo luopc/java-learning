@@ -2,7 +2,7 @@ package com.luopc.thead2.semaphore;
 
 public class CountingSemaphore {
 
-    private int signals = 0;
+    private volatile int signals = 0;
 
     public synchronized void take() {
         this.signals++;
