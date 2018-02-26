@@ -18,12 +18,12 @@ public class BoundedSemaphoreTest {
         }
         es.shutdown();
    
-//        ExecutorService es2 = Executors.newCachedThreadPool();
-//        java.util.concurrent.Semaphore smh = new java.util.concurrent.Semaphore(2);
-//        for (int i = 0; i < 20; i++) {
-//            es2.execute(new BoundedSemaphoreTest().new JdkSemaphoreRunable(smh, i));
-//        }
-//        es2.shutdown();
+        ExecutorService es2 = Executors.newCachedThreadPool();
+        java.util.concurrent.Semaphore smh = new java.util.concurrent.Semaphore(2);
+        for (int i = 0; i < 20; i++) {
+            es2.execute(new BoundedSemaphoreTest().new JdkSemaphoreRunable(smh, i));
+        }
+        es2.shutdown();
     }
 
     /**
