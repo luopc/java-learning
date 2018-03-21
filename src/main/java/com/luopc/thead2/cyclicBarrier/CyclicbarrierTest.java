@@ -32,7 +32,7 @@ public class CyclicbarrierTest {
                     }
                     
                     //-----------------------第二轮栅栏
-                    Thread.sleep(((long) (Math.random() * 1000)));                    
+                    Thread.sleep(((long) (Math.random() * 5000)));                    
                     System.out.println(user + "准备出牌~");
                     cb.await();
                     if ("No.1".equals(user)) {

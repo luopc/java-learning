@@ -113,12 +113,21 @@ public class StringTest {
 		a %= b;
 		System.out.println(a);
 
-//		instanceof
+		// instanceof
 		int m = 2;
 		m <<= 2;
-		System.out.println(2<<2);
+		System.out.println(2 << 2);
 		System.out.println(m);
+
+	}
+
+	@Test
+	public void test006() {
+		int ch = "你好吗".codePointAt(1);
+		System.out.println(ch);
+		System.out.println((int) "好".charAt(0));
 		
+		System.out.println("你好吗".codePointBefore(1));
 	}
 
 }

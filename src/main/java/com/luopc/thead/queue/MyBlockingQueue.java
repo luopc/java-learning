@@ -3,13 +3,13 @@ package com.luopc.thead.queue;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BlockingQueue<T> {
+public class MyBlockingQueue<T> {
 
     private List<T> queue = new LinkedList<T>();
 
     private int limit = 10;
 
-    public BlockingQueue(int limit) {
+    public MyBlockingQueue(int limit) {
         this.limit = limit;
     }
 

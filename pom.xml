@@ -45,6 +45,12 @@
 			<artifactId>cglib-nodep</artifactId>
 			<version>3.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.22.Final</version>
+		</dependency>
 
 
 	</dependencies>

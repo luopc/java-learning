@@ -8,7 +8,7 @@ class CountDownLatchDemo {
         int maxNum = 6;
         final CountDownLatch latch = new CountDownLatch(maxNum);
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < maxNum; i++) {
             final int user = i + 1;
             Runnable r = () -> {
                 System.out.printf("任务[%d]正在执行任务\r\n", user);

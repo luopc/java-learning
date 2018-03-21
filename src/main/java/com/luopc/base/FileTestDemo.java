@@ -8,7 +8,7 @@ public class FileTestDemo {
 	
 	@Test
 	public void test01() {
-		String basePath = "J:\\视频资料\\Spring+Mybatis+SpringMVC+Dubbox+Storm+Zookeeper+FastDFS大型分布式数据交换平台\\分布式项目";
+		String basePath = "H:\\视频资料\\Tomcat集群与Redis分布式";
 		File file = new File(basePath);
 		changeFileName(file);
 	}

@@ -2,6 +2,18 @@ package com.luopc.lambda;
 
 import org.junit.Test;
 
+interface IMessage {
+	public void print();
+}
+
+interface IMessage2 {
+	public void print(String msg);
+}
+
+interface IMessage3 {
+	public int print(int x, int y);
+}
+
 public class LambdaTest {
 
 	@Test
@@ -50,14 +62,3 @@ public class LambdaTest {
 
 }
 
-interface IMessage {
-	public void print();
-}
-
-interface IMessage2 {
-	public void print(String msg);
-}
-
-interface IMessage3 {
-	public int print(int x, int y);
-}

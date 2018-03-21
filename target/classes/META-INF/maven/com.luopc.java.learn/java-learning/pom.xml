@@ -39,12 +39,17 @@
 			<artifactId>dom4j</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/cglib/cglib -->
 		<!-- https://mvnrepository.com/artifact/cglib/cglib-nodep -->
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
 			<version>3.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.22.Final</version>
 		</dependency>
 
 
