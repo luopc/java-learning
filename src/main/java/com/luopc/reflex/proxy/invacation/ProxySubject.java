@@ -9,10 +9,11 @@ public class ProxySubject implements InvocationHandler {
 	
 	private Object taget;
 	
-	public Object bind(Object taget) {
+	@SuppressWarnings("unchecked")
+	public <T> T bind(Object taget) {
 		this.taget =  taget;
 		Object obj = Proxy.newProxyInstance(taget.getClass().getClassLoader(), taget.getClass().getInterfaces(), this);
-		return obj;
+		return (T) obj;
 	}
 	
 	public void prepare() {
@@ -25,9 +26,6 @@ public class ProxySubject implements InvocationHandler {
 
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-//		System.out.println(proxy.getClass());
-//		System.out.println(method);
-//		System.out.println(Arrays.toString(args));
 		this.prepare();
 		Object ret = method.invoke(this.taget, args);
 		this.clear();
