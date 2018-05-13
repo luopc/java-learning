@@ -6,7 +6,7 @@ package com.luopc.thead2.jvm;
  *
  */
 class Singleton {
-    private static Singleton sin = new Singleton();
+    private static Singleton sin = new Singleton();//1
     public static int counter1;
     public static int counter2 = 0;
 

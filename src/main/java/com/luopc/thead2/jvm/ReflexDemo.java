@@ -1,7 +1,11 @@
 package com.luopc.thead2.jvm;
 
 import java.util.Random;
-
+/**
+ * https://www.cnblogs.com/leesf456/p/5228922.html
+ * @author cheng
+ *
+ */
 class Init1 {
     static final int staticFinal1 = 1;
     static final int staticFinal2 = ReflexDemo.random.nextInt(100);
@@ -39,7 +43,6 @@ public class ReflexDemo {
             System.out.println("after init init3 ref");
             System.out.println(Init3.staticNonFinal1);
         } catch (ClassNotFoundException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
     }

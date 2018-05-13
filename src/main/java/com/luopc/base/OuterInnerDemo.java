@@ -19,9 +19,9 @@ public class OuterInnerDemo {
 	}
 
 	public static void main(String[] args) {
-		Inner in = new OuterInnerDemo().new Inner();
-		System.out.println(in.getSize());
-		System.out.println(in.size);
+		Inner in = new OuterInnerDemo().new Inner();//
+		System.out.println(in.getSize());//调用内部类的public方法
+		System.out.println(in.size);//调用内部类的private属性
 		System.out.println("------------------------------");
 		SelfInner sin = new OuterInnerDemo().new SelfInner();
 		System.out.println(sin.getSize());

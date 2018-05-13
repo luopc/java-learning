@@ -17,13 +17,13 @@ public class SerializableDemo{
     
     
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("d:\\java-out\\result.obj"));
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("d:\\java-output\\result.obj"));
         out.writeObject(new StaticTest(10));
         out.close();
         
         StaticTest.staticVar = 10;
         
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream("d:\\java-out\\result.obj"));
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("d:\\java-output\\result.obj"));
         StaticTest demo = (StaticTest) in.readObject();
         in.close();
         
