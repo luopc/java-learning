@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="exampleResourceService" class="com.spring.aop.http.resource.ExampleResourceService"></bean>
+
+
+    <bean id="verificationAspectJ" class="com.spring.aop.http.util.HttpRequestBodyVerification"></bean>
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="pointHeader" expression="@annotation(com.spring.aop.http.util.VerifyHeader)"/>
+        <aop:pointcut id="pointBody" expression="@annotation(com.spring.aop.http.util.VerifyBody) and @annotation(verifyBody)"/>
+        <aop:aspect ref="verificationAspectJ" >
+            <aop:before pointcut-ref="pointHeader" method="verifyHeader"/>
+        </aop:aspect>
+        <aop:aspect ref="verificationAspectJ" >
+            <aop:around pointcut-ref="pointBody" method="verifyBody"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

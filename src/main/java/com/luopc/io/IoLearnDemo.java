@@ -17,9 +17,8 @@ public class IoLearnDemo {
 
 	@Test
 	public void test01() {
-//		String saop = getXmlString("D:\\java-out\\soap-query.xml");
-		try {
-			OutputStream os = new FileOutputStream(new File("D:\\java-out\\test.txt"));
+//		String saop = getXmlString("D:\\java-output\\soap-query.xml");
+		try (OutputStream os = new FileOutputStream(new File("D:\\java-output\\test.txt"))){
 			for (int i = 0; i < 10; i++) {
 				os.write("www.shunde.gov \r\n".getBytes());
 			}
@@ -33,10 +32,9 @@ public class IoLearnDemo {
 
 	@Test
 	public void getXmlString() {
-		String path = "D:\\java-out\\soap-query.xml";
+		String path = "D:\\java-output\\soap-query.xml";
 		File file = new File(path);
-		try {
-			InputStream is = new FileInputStream(file);
+		try (InputStream is = new FileInputStream(file)){
 			byte data[] = new byte[1024];
 			int len = is.read(data);
 			System.out.println("读取内容[" + new String(data, 0, len) + "]");
@@ -53,7 +51,7 @@ public class IoLearnDemo {
 	@Test
 	public void writerTest() {
 		try {
-			Writer out = new FileWriter("D:\\java-out\\writer.txt");
+			Writer out = new FileWriter("D:\\java-output\\writer.txt");
 			out.write("世界和平");
 			out.close();
 		} catch (IOException e) {
