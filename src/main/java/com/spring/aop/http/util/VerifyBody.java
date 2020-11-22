@@ -1,0 +1,14 @@
+package com.spring.aop.http.util;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface VerifyBody {
+
+    VerifyBodyPolicy type() default VerifyBodyPolicy.MUST_BE_CONSISTENT;
+
+}

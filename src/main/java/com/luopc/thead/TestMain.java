@@ -16,7 +16,7 @@ public class TestMain {
 		System.out.println(test.size());
 		test.removeFirst();
 		System.out.println(test.size());
-
+		//kawd-829  KAWD-814 SSNI-229 SSNI-645 SSNI-647 SSNI-733 SSNI-780 IPX-459 kawd-829
 	}
 	
 	

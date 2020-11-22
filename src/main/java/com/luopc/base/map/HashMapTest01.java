@@ -7,8 +7,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.junit.Test;
 
-import com.sun.javafx.css.StyleCacheEntry.Key;
-
 /**
  * 打印在数组中出现n/2以上的元素 利用一个HashMap来存放数组元素及出现的次数
  * 
