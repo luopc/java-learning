@@ -4,7 +4,9 @@ import com.spring.aop.http.bo.PrimaryHttpRequestBo;
 import com.spring.aop.http.util.VerifyBody;
 import com.spring.aop.http.util.VerifyBodyPolicy;
 import com.spring.aop.http.util.VerifyHeader;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ExampleResourceService {
 
     @VerifyHeader
