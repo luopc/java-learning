@@ -86,8 +86,8 @@ public class ReNameFile {
     }
 
     public static void main(String[] args) {
-            String inputPath = "E:\\迅雷下载\\restore_4";
-            String outPutPath = "E:\\零基础学英语\\不一样的新概念\\不一样的新概念英语【第4辑】\\不一样的新概念（4）-音频";
+            String inputPath = "E:\\迅雷下载\\restore_3";
+            String outPutPath = "E:\\零基础学英语\\不一样的新概念\\不一样的新概念英语【第3辑】\\不一样的新概念（3）-音频";
             reName_02(inputPath, outPutPath);
 
     }

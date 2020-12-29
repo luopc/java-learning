@@ -94,8 +94,10 @@ public class PicFileProcess {
                     BufferedImage bufImage = ImageIO.read(inFile);
                     int width = bufImage.getWidth();
                     int height = bufImage.getHeight();
-                    System.out.println("width: " + width + "; height: " + height);
-                    bufImage = bufImage.getSubimage(0, 0, width, height > 19560 ? 19590 : height);
+                    int newHeight = (int) (0.1 * height * 6);
+
+                    System.out.println("width: " + width + "; height: " + height + "; newHeight: " + newHeight);
+                    bufImage = bufImage.getSubimage(0, 0, width, newHeight);
                     File outFile = new File(storePath + File.separator + fileName);
                     if(!outFile.exists()) outFile.mkdirs();
                     ImageIO.write(bufImage, "png", outFile);
@@ -107,10 +109,8 @@ public class PicFileProcess {
 
 
     public static void main(String[] args) throws Exception {
-
-
-        String filePath = "E:\\零基础学英语\\不一样的新概念\\不一样的新概念英语【第2辑】\\不一样的新概念（2）-讲义图片";
-        String outPath = "E:\\零基础学英语\\不一样的新概念\\不一样的新概念英语【第2辑】\\second\\";
+        String filePath = "E:\\零基础学英语\\不一样的新概念\\不一样的新概念英语【第4辑】\\input\\";
+        String outPath = "E:\\零基础学英语\\不一样的新概念\\不一样的新概念英语【第4辑】\\output\\";
         //pdf2Pic(filePath, outPath);
         subImage(filePath, outPath);
     }
